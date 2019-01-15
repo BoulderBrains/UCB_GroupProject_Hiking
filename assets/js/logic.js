@@ -1,15 +1,14 @@
-var googleApiKey = config.MY_KEY;
+var googleKey = keys.GOOGLE_KEY;
+
+var queryURL = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=' + googleKey,
 
 function callGeo(place) {
     $.ajax({
-
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + place + '&key=AIzaSyCUNqCpU6lMg4FNWeTPhOT-fY1u8g2YACk',
+        url: queryURL,
         method: "GET",
         type: "json"
     }).then(function (response) {
         console.log(response)
-        // console.log(response.results[0].geometry.location)
-        // console.log(response.results[0].geometry.location.lng)
         var latGeo = response.results[0].geometry.location.lat
         var longGeo = response.results[0].geometry.location.lng
         callHiking(latGeo, longGeo)
