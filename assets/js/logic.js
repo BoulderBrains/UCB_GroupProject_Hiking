@@ -1,3 +1,5 @@
+var googleApiKey = config.MY_KEY;
+
 function callGeo(place) {
     $.ajax({
 
